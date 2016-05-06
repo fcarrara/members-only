@@ -1,0 +1,8 @@
+<li>
+  <h4><%= post.title %>
+  <% if logged_in? %>
+    | <%= "by : #{post.user.username}" %>
+  <% end %></h4>
+  <hr>
+  <p><%= post.content %></p>
+</li>

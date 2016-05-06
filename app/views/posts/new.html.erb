@@ -1,0 +1,29 @@
+<% provide(:title, 'New post') %>
+<h1>New post</h1>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 blur-container">
+    <%= form_for(@post) do |f| %>
+      
+      <% if @post.errors.any? %>
+        <div id="error_explanation">
+          <div class="alert alert-danger">
+            The form contains <%= pluralize(@post.errors.count, "error") %>.
+          </div>
+          <ul>
+          <% @post.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <%= f.label :title %>
+      <%= f.text_field :title, class: 'form-control' %>
+
+      <%= f.label :content %>
+      <%= f.text_field :content, class: 'form-control post-content' %>
+
+      <%= f.submit 'Submit', class: "login-btn btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
